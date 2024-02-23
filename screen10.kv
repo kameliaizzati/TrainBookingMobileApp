@@ -1,0 +1,71 @@
+<Screen10>: #bookingstab
+    name: "screen_ten"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: 5
+        padding: 25
+        size_hint_y: None
+        height: 500
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        FitImage: #Layout A
+            source: "trainlogo1.png"
+            #size_hint_y: None
+            #height: 180
+            allow_stretch: True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        MDBoxLayout: #Layout B
+            orientation: "vertical"
+            spacing: 5
+            size_hint_y: None
+            height: 250
+            MDLabel:
+                text: "Sign In"
+                halign: "center"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+                font_style: "Subtitle1"
+            MDCard:
+                size_hint_x: None
+                width: 300
+                size_hint_y: None
+                height: 130
+                radius: 10
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 10
+                    padding : 10
+                    MDTextField:
+                        id: login_username10
+                        hint_text: "Your Username"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: None
+                        width: 250
+                        mode: 'fill'
+                    MDTextField:
+                        id: login_password10
+                        hint_text: "Your Password"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: None
+                        width: 250
+                        mode: 'fill'
+
+            MDRectangleFlatButton:
+                text: "Sign In"
+                halign: "center"
+                font_size: "14sp"
+                padding: 5
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release:
+                    app.signin_bookings(root.ids.login_username10.text,root.ids.login_password10.text)
+
+            MDFlatButton:
+                text: "Back"
+                halign: "center"
+                font_size: "16sp"
+                font_style: "Subtitle1"
+                padding: 5
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "screen_one"

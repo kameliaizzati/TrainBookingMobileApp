@@ -1,0 +1,470 @@
+<Screen2>: #TRAIN SCHEDULE INFORMATION
+    name: "screen_two"
+    #md_bg_color: app.theme_cls.primary_light
+
+	MDBoxLayout:
+	    orientation: "vertical"
+		spacing: 5
+		padding: 20
+		MDCard:
+		    size_hint_y: None
+            height: 50
+		    MDIconButton:
+                icon: "chevron-left"
+                pos_hint: {'center_x': 0.2, 'center_y': 0.5}
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "screen_one"
+            MDLabel:
+                text: "Train Schedule Information"
+                halign: "center"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                padding: 0,5,0,0
+                font_style: "Subtitle1"
+        MDCard:
+            size_hint_y: None
+            height: 30
+            MDLabel:
+                id: depart_date_2
+                text: ""
+                halign: "center"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                padding: 0,5,0,0
+                font_style: "Subtitle2"
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing : 5
+                size_hint_y: None
+                height: 600
+                MDCard:
+                    padding:10
+                    size_hint_y: None
+                    height: 80
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        MDRelativeLayout:
+                            size_hint_x: None
+                            width: 230
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            MDIcon: #icon
+                                icon: "train"
+                                theme_text_color: 'Primary'
+                                halign: "right"
+                                pos_hint: {"center_x": 0.05, "center_y": 0.5}
+                            MDLabel: #depart time
+                                id: depart_time_1
+                                text: "07:30AM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.65, 'center_y': 0.7}
+                            MDLabel: #arrival time
+                                id: arrive_time_1
+                                text: "10:30AM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.9, 'center_y': 0.7}
+                            MDLabel: #duration
+                                text: "3 hours"
+                                font_style: "Caption"
+                                pos_hint: {'center_x': 0.78, 'center_y': 0.45}
+                            MDLabel: #train no
+                                id: train_1
+                                text: "Train 0109"
+                                font_style: "Subtitle2"
+                                font_size: "11sp"
+                                pos_hint: {'center_x': 0.76, 'center_y': 0.22}
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 5
+                            MDLabel: #price
+                                id: price_1
+                                text: "RM24.50"
+                                halign: "center"
+                                bold: True
+                                font_style: "Body2"
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+                            MDRectangleFlatButton:
+                                text: "Book"
+                                halign: "center"
+                                font_size: "12sp"
+                                size_hint_y: None
+                                height: 5
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.2}
+                                on_release:
+                                    app.details_check(root.ids.depart_time_1.text,root.ids.arrive_time_1.text,root.ids.price_1.text)
+                                    root.manager.transition.direction = "left"
+                                    root.manager.current = "screen_three"
+                MDCard:
+                    padding:10
+                    size_hint_y: None
+                    height: 80
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        MDRelativeLayout:
+                            size_hint_x: None
+                            width: 230
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            MDIcon: #icon
+                                icon: "train"
+                                theme_text_color: 'Primary'
+                                halign: "right"
+                                pos_hint: {"center_x": 0.05, "center_y": 0.5}
+                            MDLabel: #depart time
+                                id: depart_time_2
+                                text: "08:15AM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.65, 'center_y': 0.7}
+                            MDLabel: #arrival time
+                                id: arrive_time_2
+                                text: "11:15AM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.90, 'center_y': 0.7}
+                            MDLabel: #duration
+                                text: "3 hours"
+                                font_style: "Caption"
+                                pos_hint: {'center_x': 0.78, 'center_y': 0.45}
+                            MDLabel: #train no
+                                id: train_2
+                                text: "Train 2509"
+                                font_style: "Subtitle2"
+                                font_size: "11sp"
+                                pos_hint: {'center_x': 0.76, 'center_y': 0.22}
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 5
+                            MDLabel: #price
+                                id: price_2
+                                text: "RM24.50"
+                                halign: "center"
+                                bold: True
+                                font_style: "Body2"
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+                            MDRectangleFlatButton:
+                                text: "Book"
+                                halign: "center"
+                                font_size: "12sp"
+                                size_hint_y: None
+                                height: 5
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.2}
+                                on_release:
+                                    app.details_check(root.ids.depart_time_2.text,root.ids.arrive_time_2.text,root.ids.price_2.text)
+                                    root.manager.transition.direction = "left"
+                                    root.manager.current = "screen_three"
+                MDCard:
+                    padding:10
+                    size_hint_y: None
+                    height: 80
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        MDRelativeLayout:
+                            size_hint_x: None
+                            width: 230
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            MDIcon: #icon
+                                icon: "train"
+                                theme_text_color: 'Primary'
+                                halign: "right"
+                                pos_hint: {"center_x": 0.05, "center_y": 0.5}
+                            MDLabel: #depart time
+                                id: depart_time_3
+                                text: "10:00AM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.65, 'center_y': 0.7}
+                            MDLabel: #arrival time
+                                id: arrive_time_3
+                                text: "01:00PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.90, 'center_y': 0.7}
+                            MDLabel: #duration
+                                text: "3 hours"
+                                font_style: "Caption"
+                                pos_hint: {'center_x': 0.78, 'center_y': 0.45}
+                            MDLabel: #train no
+                                id: train_3
+                                text: "Train 1808"
+                                font_style: "Subtitle2"
+                                font_size: "11sp"
+                                pos_hint: {'center_x': 0.76, 'center_y': 0.22}
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 5
+                            MDLabel: #price
+                                id: price_3
+                                text: "RM24.50"
+                                halign: "center"
+                                bold: True
+                                font_style: "Body2"
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+                            MDRectangleFlatButton:
+                                text: "Book"
+                                halign: "center"
+                                font_size: "12sp"
+                                size_hint_y: None
+                                height: 5
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.2}
+                                on_release:
+                                    app.details_check(root.ids.depart_time_3.text,root.ids.arrive_time_3.text,root.ids.price_3.text)
+                                    root.manager.transition.direction = "left"
+                                    root.manager.current = "screen_three"
+
+                MDCard:
+                    padding:10
+                    size_hint_y: None
+                    height: 80
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        MDRelativeLayout:
+                            size_hint_x: None
+                            width: 230
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            MDIcon: #icon
+                                icon: "train"
+                                theme_text_color: 'Primary'
+                                halign: "right"
+                                pos_hint: {"center_x": 0.05, "center_y": 0.5}
+                            MDLabel: #depart time
+                                id: depart_time_3
+                                text: "12:45PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.65, 'center_y': 0.7}
+                            MDLabel: #arrival time
+                                id: arrive_time_3
+                                text: "03:45PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.90, 'center_y': 0.7}
+                            MDLabel: #duration
+                                text: "3 hours"
+                                font_style: "Caption"
+                                pos_hint: {'center_x': 0.78, 'center_y': 0.45}
+                            MDLabel: #train no
+                                id: train_3
+                                text: "Train 1808"
+                                font_style: "Subtitle2"
+                                font_size: "11sp"
+                                pos_hint: {'center_x': 0.76, 'center_y': 0.22}
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 5
+                            MDLabel: #price
+                                id: price_3
+                                text: "RM26.50"
+                                halign: "center"
+                                bold: True
+                                font_style: "Body2"
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+                            MDRectangleFlatButton:
+                                text: "Book"
+                                halign: "center"
+                                font_size: "12sp"
+                                size_hint_y: None
+                                height: 5
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.2}
+                                on_release:
+                                    app.details_check(root.ids.depart_time_3.text,root.ids.arrive_time_3.text,root.ids.price_3.text)
+                                    root.manager.transition.direction = "left"
+                                    root.manager.current = "screen_three"
+
+                MDCard:
+                    padding:10
+                    size_hint_y: None
+                    height: 80
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        MDRelativeLayout:
+                            size_hint_x: None
+                            width: 230
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            MDIcon: #icon
+                                icon: "train"
+                                theme_text_color: 'Primary'
+                                halign: "right"
+                                pos_hint: {"center_x": 0.05, "center_y": 0.5}
+                            MDLabel: #depart time
+                                id: depart_time_3
+                                text: "04:15PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.65, 'center_y': 0.7}
+                            MDLabel: #arrival time
+                                id: arrive_time_3
+                                text: "07:15PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.90, 'center_y': 0.7}
+                            MDLabel: #duration
+                                text: "3 hours"
+                                font_style: "Caption"
+                                pos_hint: {'center_x': 0.78, 'center_y': 0.45}
+                            MDLabel: #train no
+                                id: train_3
+                                text: "Train 1808"
+                                font_style: "Subtitle2"
+                                font_size: "11sp"
+                                pos_hint: {'center_x': 0.76, 'center_y': 0.22}
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 5
+                            MDLabel: #price
+                                id: price_3
+                                text: "RM28.00"
+                                halign: "center"
+                                bold: True
+                                font_style: "Body2"
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+                            MDRectangleFlatButton:
+                                text: "Book"
+                                halign: "center"
+                                font_size: "12sp"
+                                size_hint_y: None
+                                height: 5
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.2}
+                                on_release:
+                                    app.details_check(root.ids.depart_time_3.text,root.ids.arrive_time_3.text,root.ids.price_3.text)
+                                    root.manager.transition.direction = "left"
+                                    root.manager.current = "screen_three"
+
+                MDCard:
+                    padding:10
+                    size_hint_y: None
+                    height: 80
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        MDRelativeLayout:
+                            size_hint_x: None
+                            width: 230
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            MDIcon: #icon
+                                icon: "train"
+                                theme_text_color: 'Primary'
+                                halign: "right"
+                                pos_hint: {"center_x": 0.05, "center_y": 0.5}
+                            MDLabel: #depart time
+                                id: depart_time_3
+                                text: "08:30PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.65, 'center_y': 0.7}
+                            MDLabel: #arrival time
+                                id: arrive_time_3
+                                text: "11:30PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.90, 'center_y': 0.7}
+                            MDLabel: #duration
+                                text: "3 hours"
+                                font_style: "Caption"
+                                pos_hint: {'center_x': 0.78, 'center_y': 0.45}
+                            MDLabel: #train no
+                                id: train_3
+                                text: "Train 1808"
+                                font_style: "Subtitle2"
+                                font_size: "11sp"
+                                pos_hint: {'center_x': 0.76, 'center_y': 0.22}
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 5
+                            MDLabel: #price
+                                id: price_3
+                                text: "RM28.00"
+                                halign: "center"
+                                bold: True
+                                font_style: "Body2"
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+                            MDRectangleFlatButton:
+                                text: "Book"
+                                halign: "center"
+                                font_size: "12sp"
+                                size_hint_y: None
+                                height: 5
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.2}
+                                on_release:
+                                    app.details_check(root.ids.depart_time_3.text,root.ids.arrive_time_3.text,root.ids.price_3.text)
+                                    root.manager.transition.direction = "left"
+                                    root.manager.current = "screen_three"
+
+                MDCard:
+                    padding:10
+                    size_hint_y: None
+                    height: 80
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        MDRelativeLayout:
+                            size_hint_x: None
+                            width: 230
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            MDIcon: #icon
+                                icon: "train"
+                                theme_text_color: 'Primary'
+                                halign: "right"
+                                pos_hint: {"center_x": 0.05, "center_y": 0.5}
+                            MDLabel: #depart time
+                                id: depart_time_3
+                                text: "09:00PM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.65, 'center_y': 0.7}
+                            MDLabel: #arrival time
+                                id: arrive_time_3
+                                text: "12:00AM"
+                                font_style: "Subtitle2"
+                                font_size: "12sp"
+                                pos_hint: {'center_x': 0.90, 'center_y': 0.7}
+                            MDLabel: #duration
+                                text: "3 hours"
+                                font_style: "Caption"
+                                pos_hint: {'center_x': 0.78, 'center_y': 0.45}
+                            MDLabel: #train no
+                                id: train_3
+                                text: "Train 1808"
+                                font_style: "Subtitle2"
+                                font_size: "11sp"
+                                pos_hint: {'center_x': 0.76, 'center_y': 0.22}
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 5
+                            MDLabel: #price
+                                id: price_3
+                                text: "RM28.00"
+                                halign: "center"
+                                bold: True
+                                font_style: "Body2"
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+                            MDRectangleFlatButton:
+                                text: "Book"
+                                halign: "center"
+                                font_size: "12sp"
+                                size_hint_y: None
+                                height: 5
+                                pos_hint: {'center_x': 0.6, 'center_y': 0.2}
+                                on_release:
+                                    app.details_check(root.ids.depart_time_3.text,root.ids.arrive_time_3.text,root.ids.price_3.text)
+                                    root.manager.transition.direction = "left"
+                                    root.manager.current = "screen_three"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

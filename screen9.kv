@@ -1,0 +1,84 @@
+<Screen9>: #Sign In
+    name: "screen_nine"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: 5
+        padding: 25
+        size_hint_y: None
+        height: 500
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        FitImage: #Layout A
+            source: "trainlogo1.png"
+            #size_hint_y: None
+            #height: 180
+            allow_stretch: True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        MDBoxLayout: #Layout B
+            orientation: "vertical"
+            spacing: 5
+            size_hint_y: None
+            height: 250
+            MDLabel:
+                text: "Sign In"
+                halign: "center"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+                font_style: "Subtitle1"
+            MDCard:
+                size_hint_x: None
+                width: 300
+                size_hint_y: None
+                height: 130
+                radius: 10
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 10
+                    padding : 10
+                    MDTextField:
+                        id: login_username
+                        hint_text: "Your Username"
+                        text: ""
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: None
+                        width: 250
+                        mode: 'fill'
+                    MDTextField:
+                        id: login_password
+                        text: ""
+                        hint_text: "Your Password"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: None
+                        width: 250
+                        mode: 'fill'
+
+            MDRectangleFlatButton:
+                text: "Sign In"
+                halign: "center"
+                font_size: "14sp"
+                padding: 5
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release:
+                    app.signin(root.ids.login_username.text,root.ids.login_password.text)
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: None
+                width: 250
+                MDLabel: #Sign Up Click
+                    text: "Don't have an account?"
+                    padding: 5
+                    halign: "center"
+                    font_style: "Subtitle2"
+                    size_hint_x: None
+                    width: 220
+                MDFlatButton:
+                    text: "Sign Up"
+                    halign: "left"
+                    font_size: "16sp"
+                    font_style: "Subtitle1"
+                    padding: 5
+                    pos_hint: {'center_x': 0.1, 'center_y': 0.5}
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "screen_eight"
+

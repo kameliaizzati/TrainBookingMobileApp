@@ -1,0 +1,309 @@
+<Screen3>: #COACH AND SEATING
+    name: "screen_three"
+
+    MDBoxLayout:
+		orientation: "vertical"
+		spacing: 0
+		padding: 20
+		MDBoxLayout: #layout A
+		    orientation: "vertical"
+		    size_hint_y: None
+            height: 100
+		    spacing: 5
+		    padding: 5
+		    MDCard: #layout A1
+		        padding: 5
+		        MDIconButton:
+                    icon: "chevron-left"
+                    pos_hint: {'center_x': 0.2, 'center_y': 0.5}
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "screen_two"
+                MDLabel:
+                    text: "Select Coach and Seat"
+                    halign: "center"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    padding: 0,5,0,0
+                    font_style: "Subtitle1"
+            MDBoxLayout: #layout A2
+                orientation: "horizontal"
+                spacing: 5
+                MDCard:
+                    padding: 5
+                    FitImage:
+                        source: "available.png"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint: None, None
+                        width: 20
+                        height: 20
+                    MDLabel:
+                        text: "Available"
+                        halign: "center"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_style: "Subtitle2"
+                MDCard:
+                    padding: 5
+                    FitImage:
+                        source: "selected.png"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint: None, None
+                        width: 20
+                        height: 20
+                    MDLabel:
+                        text: "Selected"
+                        halign: "center"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_style: "Subtitle2"
+                MDCard:
+                    padding: 5
+                    FitImage:
+                        source: "unavailable.jpg"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint: None, None
+                        width: 20
+                        height: 20
+                    MDLabel:
+                        text: "Unavailable"
+                        halign: "center"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_style: "Subtitle2"
+
+		MDBoxLayout: #LayoutB
+		    orientation: "horizontal"
+		    size_hint_y: None
+            height: 300
+		    spacing: 5
+		    padding: 5
+		    MDCard: #coach #LayoutB1
+		        size_hint_x: None
+                width: 95
+		        MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+                    padding: 5
+                    CoachButton1:
+                        id: tb_a 
+                        text: "Coach A"
+                        halign: "center"
+                        font_size: "12sp"
+                        on_press: root.coach_check(root.ids.tb_a.text)
+                    CoachButton1:
+                        id: tb_b
+                        text: "Coach B"
+                        halign: "center"
+                        font_size: "12sp"
+                        on_press: root.coach_check(root.ids.tb_b.text)
+                    CoachButton1:
+                        id: tb_c
+                        text: "Coach C"
+                        halign: "center"
+                        font_size: "12sp"
+                        on_press: root.coach_check(root.ids.tb_c.text)
+                    CoachButton1:
+                        id: tb_d
+                        text: "Coach D"
+                        halign: "center"
+                        font_size: "12sp"
+                        on_press: root.coach_check(root.ids.tb_d.text)
+                    CoachButton1:
+                        id: tb_e
+                        text: "Coach E"
+                        halign: "center"
+                        font_size: "12sp"
+                        on_press: root.coach_check(root.ids.tb_e.text)
+                    CoachButton1:
+                        id: tb_f
+                        text: "Coach F"
+                        halign: "center"
+                        font_size: "12sp"
+                        on_press: root.coach_check(root.ids.tb_f.text)
+
+            MDCard: #seat #LayoutB2
+		        size_hint_x: None
+                width: 250
+		        MDBoxLayout:
+		            padding: 5
+		            orientation: "vertical"
+		            MDLabel:
+		                id: cap_id_coach
+		                text: ""
+		                halign: "center"
+		                pos_hint: { "center_x": 0.5, "center_y": 0.5 }
+		                font_style: "Subtitle2"
+		                size_hint_y: None
+		                height: 20
+		            MDGridLayout:
+                        cols:4
+                        padding: 10
+                        spacing: 5
+                        SeatButton1:
+                            id: sb_1
+                            text: "01"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_1.text)
+                        SeatButton1:
+                            id: sb_2
+                            text: "02"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_2.text)
+                        SeatButton1:
+                            id: sb_3
+                            text: "03"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_3.text)
+                        SeatButton1:
+                            id: sb_4
+                            text: "04"
+                            halign: "center"
+                            font_size: "12sp"
+                            disabled: True
+                            on_press: root.seat_check(root.ids.sb_4.text)
+                        SeatButton1:
+                            id: sb_5
+                            text: "05"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_6.text)
+                        SeatButton1:
+                            id: sb_6
+                            text: "06"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_6.text)
+                        SeatButton1:
+                            id: sb_7
+                            text: "07"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_7.text)
+                        SeatButton1:
+                            id: sb_8
+                            text: "08"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_8.text)
+                        SeatButton1:
+                            id: sb_9
+                            text: "09"
+                            halign: "center"
+                            font_size: "12sp"
+                            disabled: True
+                            on_press: root.seat_check(root.ids.sb_9.text)
+                        SeatButton1:
+                            id: sb_10
+                            text: "10"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_10.text)
+                        SeatButton1:
+                            id: sb_11
+                            text: "11"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_11.text)
+                        SeatButton1:
+                            id: sb_12
+                            text: "12"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_12.text)
+                        SeatButton1:
+                            id: sb_13
+                            text: "13"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_13.text)
+                        SeatButton1:
+                            id: sb_14
+                            text: "14"
+                            halign: "center"
+                            font_size: "12sp"
+                            disabled: True
+                            on_press: root.seat_check(root.ids.sb_14.text)
+                        SeatButton1:
+                            id: sb_15
+                            text: "15"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_15.text)
+                        SeatButton1:
+                            id: sb_16
+                            text: "16"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_16.text)
+                        SeatButton1:
+                            id: sb_17
+                            text: "17"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_17.text)
+                        SeatButton1:
+                            id: sb_18
+                            text: "18"
+                            halign: "center"
+                            font_size: "12sp"
+                            disabled: True
+                            on_press: root.seat_check(root.ids.sb_18.text)
+                        SeatButton1:
+                            id: sb_19
+                            text: "19"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_19.text)
+                        SeatButton1:
+                            id: sb_20
+                            text: "20"
+                            halign: "center"
+                            font_size: "12sp"
+                            on_press: root.seat_check(root.ids.sb_20.text)
+
+
+		MDBoxLayout: #LayoutC
+		    orientation: "vertical"
+		    spacing: 5
+		    padding: 5
+		    MDCard:
+		        MDGridLayout:
+		            cols: 2
+		            MDLabel:
+		                text: "Coach No"
+		                font_style: "Subtitle2"
+		                halign: "center"
+		            MDLabel:
+		                id: selected_coach_3
+		                text: "Selected Coach"
+		                font_style: "Subtitle2"
+		                halign: "center"
+		            MDLabel:
+		                text: "Seat No "
+		                font_style: "Subtitle2"
+		                halign: "center"
+		            MDLabel:
+		                id: selected_seat_3
+		                text: "Selected Seat"
+		                font_style: "Subtitle2"
+		                halign: "center"
+            MDRectangleFlatButton:
+                text: "Next"
+                bold: True
+                halign: "center"
+                font_size: "14sp"
+                pos_hint: {'center_x': 0.9, 'center_y': 0.1}
+                padding: 5
+                on_release:
+                    app.pages_coach_seat()
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "screen_four"
+
+<CoachButton1@ToggleButton>:
+    markup: True
+    group: 'coach'
+    
+<SeatButton1@ToggleButton>:
+    markup: True
+    group: 'seat'
+

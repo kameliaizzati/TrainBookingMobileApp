@@ -1,0 +1,113 @@
+<Screen8>: #Sign Up
+    name: "screen_eight"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: 15
+        padding: 25
+        #MDGridLayout: #Layout A
+            #cols: 1
+            #row_default_height: 50
+        MDLabel:
+            text: "Sign Up"
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            font_style: "Subtitle1"
+        MDCard: #Layout B
+            size_hint_x: None
+            width: 350
+            size_hint_y: None
+            height: 320
+            radius: 10
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            MDGridLayout:
+                cols: 2
+                padding: 10
+                MDLabel:
+                    text: "Username"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDTextField:
+                    id: signup_username
+                    hint_text: "Your Username"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    size_hint_x: None
+                    width: 250
+                    mode: 'fill'
+                MDLabel:
+                    text: "Password"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDTextField:
+                    id: signup_password
+                    hint_text: "Your Password"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    size_hint_x: None
+                    width: 250
+                    mode: 'fill'
+                MDLabel:
+                    text: "Phone Number"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDTextField:
+                    id: signup_phone
+                    hint_text: "Your Phone Number"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    size_hint_x: None
+                    width: 250
+                    mode: 'fill'
+                    input_filter: 'int'
+                MDLabel:
+                    text: "Email"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDTextField:
+                    id: signup_email
+                    hint_text: "Your Email"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    size_hint_x: None
+                    width: 250
+                    mode: 'fill'
+                MDLabel:
+                    text: " "
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDRectangleFlatButton: #Sign Up Button
+                    text: "Sign Up"
+                    halign: "center"
+                    font_size: "14sp"
+                    padding: 5
+                    pos_hint: {'center_x': 1.0, 'center_y': 0.1}
+                    on_release:
+                        app.signup(root.ids.signup_username.text,root.ids.signup_password.text,root.ids.signup_email.text,root.ids.signup_phone.text)
+                        root.show_popup()
+                        #root.manager.transition.direction = "left"
+                        #root.manager.current = "screen_nine"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            MDLabel: #Sign In Click
+                text: "@ Already have an account?"
+                font_style: "Subtitle2"
+                halign: "center"
+                size_hint_x: None
+                width: 220
+            MDFlatButton:
+                text: "Sign In"
+                halign: "center"
+                font_size: "16sp"
+                padding: 5
+                pos_hint: {'center_x': 0.1, 'center_y': 0.5}
+                on_release:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "screen_nine"
+
+        MDRectangleFlatButton: #CancelButton
+            text: "Cancel"
+            halign: "center"
+            font_size: "14sp"
+            padding: 5
+            pos_hint: {'center_x': 0.2, 'center_y': 0.1}
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "screen_four"

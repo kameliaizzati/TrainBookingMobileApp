@@ -1,0 +1,115 @@
+<Screen7>: #BOOKING DONE!
+    name: "screen_seven"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: 15
+        padding: 25
+        MDGridLayout: #Layout A
+            cols: 2
+            row_default_height: 50
+            MDIconButton:
+                icon: "chevron-left"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint_x: None
+                width: 20
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "screen_six"
+            MDLabel:
+                text: "Booking Confirmation Details"
+                halign: "center"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_style: "Subtitle1"
+        MDCard: #Layout B
+            MDGridLayout:
+                cols: 2
+                MDLabel:
+                    text: "Passenger's Name"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    text: "Departure Date"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    id: name_7
+                    text: "train no"
+                    halign: "center"
+                    font_style: "Subtitle1"
+                MDLabel:
+                    id: depart_date_7
+                    text: "departure date"
+                    halign: "center"
+                    font_style: "Subtitle1"
+        MDCard: #Layout C
+            size_hint_y: None
+            height: 300
+            padding: 10
+            MDGridLayout:
+                cols: 2
+                MDLabel: #x12
+                    text: "From"
+                    halign: "left"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    text: "To"
+                    halign: "right"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    id: origin_7
+                    text: "origin"
+                    halign: "left"
+                    font_style: "Subtitle1"
+                MDLabel:
+                    id: destination_7
+                    text: "destination"
+                    halign: "right"
+                    font_style: "Subtitle1"
+                MDLabel:
+                    text: "Departure"
+                    halign: "left"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    text: "Arrival"
+                    halign: "right"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    id: departure_time_7
+                    text: "departure time"
+                    halign: "left"
+                    font_style: "Subtitle1"
+                MDLabel:
+                    id: arrival_time_7
+                    text: "arrival time"
+                    halign: "right"
+                    font_style: "Subtitle1"
+                MDLabel:
+                    text: "Coach No"
+                    halign: "left"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    text: "Seat No"
+                    halign: "right"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    id: coach_no_7
+                    text: "train no"
+                    halign: "left"
+                    font_style: "Subtitle1"
+                MDLabel:
+                    id: seat_no_7
+                    text: "seat no"
+                    halign: "right"
+                    font_style: "Subtitle1"
+        MDRectangleFlatButton: #Layout D
+            text: "Download Ticket"
+            bold: True
+            halign: "center"
+            font_size: "15sp"
+            padding: 5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            #on_press: quit()
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "screen_one"

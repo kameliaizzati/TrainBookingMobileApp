@@ -1,0 +1,106 @@
+<Screen6>: #PAYMENT
+    name: "screen_six"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: 15
+        padding: 25
+        MDGridLayout: #Layout A
+            cols: 2
+            row_default_height: 50
+            MDIconButton:
+                icon: "chevron-left"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint_x: None
+                width: 80
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "screen_five"
+            MDLabel:
+                text: "Payment"
+                halign: "center"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_style: "Subtitle1"
+        MDCard: #Layout B
+            size_hint_y: None
+            height: 400
+            spacing: 5
+            padding: 10
+            MDGridLayout:
+                cols: 2
+                CheckBox:
+                    size_hint_x: None
+                    width: 50
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    group: "payment"
+                    on_active: root.checkbox(self.active, root.ids.fpx.text)
+                MDLabel:
+                    id: fpx
+                    text: "FPX Online Banking"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    font_style: "Subtitle1"
+                CheckBox:
+                    size_hint_x: None
+                    width: 50
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    group: "payment"
+                    on_active: root.checkbox(self.active, root.ids.wallet.text)
+                MDLabel:
+                    id: wallet
+                    text: "eWallet"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    font_style: "Subtitle1"
+                CheckBox:
+                    size_hint_x: None
+                    width: 50
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    group: "payment"
+                    on_active: root.checkbox(self.active, root.ids.card.text)
+                MDLabel:
+                    id: card
+                    text: "Debit/Credit Card"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    font_style: "Subtitle1"
+                CheckBox:
+                    size_hint_x: None
+                    width: 50
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    group: "payment"
+                    on_active: root.checkbox(self.active, root.ids.apple.text)
+                MDLabel:
+                    id: apple
+                    text: "ApplePay"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    font_style: "Subtitle1"
+                CheckBox:
+                    size_hint_x: None
+                    width: 50
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    group: "payment"
+                    on_active: root.checkbox(self.active, root.ids.grab.text)
+                MDLabel:
+                    id: grab
+                    text: "GrabPay"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    font_style: "Subtitle1"
+                MDLabel:
+                    text: "  "
+                    size_hint_x: None
+                    width: 50
+                MDLabel:
+                    id:payment_method
+                    halign: 'center'
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    font_style: "Subtitle1"
+
+        MDRectangleFlatButton: #Layout C
+            text: "Pay"
+            bold: True
+            halign: "center"
+            font_size: "14sp"
+            padding: 5
+            pos_hint: {'center_x': 0.9, 'center_y': 0.1}
+            on_release:
+                app.add_data()
+                root.manager.transition.direction = "left"
+                root.manager.current = "screen_seven"

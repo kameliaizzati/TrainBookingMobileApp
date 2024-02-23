@@ -1,0 +1,73 @@
+<CancellingTicket>
+    name: 'cancelling_ticket'
+
+    MDCard:
+        size_hint_x: None
+        width: 350
+        size_hint_y: None
+        height: 400
+        radius: 10
+        padding: 10
+        pos_hint: {'center_x': 0.5 , 'center_y':0.5}
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 5
+            MDLabel:
+                text: "The following ticket will be cancelled."
+                font_style: "Subtitle1"
+                size_hint_y: None
+                height: 80
+            MDLabel:
+                text: "For the following ticket, you will be credited with the refund amount via your original payment method."
+                font_style: "Subtitle2"
+                size_hint_y: None
+                height: 100
+            MDGridLayout:
+                cols: 2
+                size_hint_x: None
+                width: 300
+                MDLabel:
+                    text: 'Origin : '
+                MDLabel:
+                    id: cancel_origin
+                    text:''
+                MDLabel:
+                    text: 'Destination : '
+                MDLabel:
+                    id: cancel_destination
+                    text:''
+                MDLabel:
+                    text: 'Date : '
+                MDLabel:
+                    id: cancel_date
+                    text:''
+                MDLabel:
+                    text: 'Time : '
+                MDLabel:
+                    id: cancel_dtime
+                    text:''
+                MDLabel:
+                    text: 'Coach : '
+                MDLabel:
+                    id: cancel_coach
+                    text:''
+                MDLabel:
+                    text: 'Seat : '
+                MDLabel:
+                    id: cancel_seat
+                    text:''
+                MDLabel:
+                    text: 'Total Refund : '
+                MDLabel:
+                    id: cancel_refund
+                    text:''
+
+
+            MDRectangleFlatButton:
+                text: 'Proceed Cancellation'
+                pos_hint: {'center_x':0.75,'center_y':0.1}
+                on_release:
+                    app.change()
+                    root.cancel_successful()
+                    root.manager.current = "screen_one"

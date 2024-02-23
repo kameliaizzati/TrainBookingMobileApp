@@ -1,0 +1,219 @@
+<Screen1>: #HOMESCREEN
+    name: "screen_one"
+
+    MDBottomNavigation:
+        id: bottom_nav
+
+        MDBottomNavigationItem:
+            name: 'home_screen'
+            text: "Home"
+            icon: 'home-circle'
+
+
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: 5
+                spacing: 5
+
+                MDBoxLayout: #LayoutA
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: 100
+                    size_hint_x: None
+                    width: 300
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    MDLabel:
+                        text: "Book Your Ticket Now"
+                        halign: 'center'
+                        font_style: "Overline"
+                        italic: True
+                        font_size: 25
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: None
+                        width: 170
+                    FitImage:
+                        source: "trainlogo1.png"
+                        pos_hint: {'center_x': 0.1, 'center_y': 0.55}
+
+                MDCard: #Layout B
+                    size_hint_x: None
+                    width: 300
+                    size_hint_y: None
+                    height: 380
+                    radius: 10
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        spacing: 10
+                        padding : 5
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+                        MDTextField: #from
+                            id: origin
+                            text: "From"
+                            size_hint_x: None
+                            width: 250
+                            mode: 'fill'
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            on_focus: if self.focus: app.places1.open()
+                        MDTextField: #to
+                            id: destination
+                            text: "To"
+                            size_hint_x: None
+                            width: 250
+                            mode: 'fill'
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            on_focus: if self.focus: app.places2.open()
+                        MDRelativeLayout: #depart date
+                            size_hint_x: None
+                            width: 250
+                            size_hint_y: None
+                            height: 50
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            MDTextField:
+                                id: departure_date
+                                hint_text: "Departure Date"
+                                text: ""
+                                mode: "fill"
+                            MDIconButton:
+                                icon: "calendar-month"
+                                pos_hint: {"center_y": .4}
+                                pos: departure_date.width - self.width + dp(5), 0
+                                on_release:
+                                    root.departure_date_picker()
+                        MDRelativeLayout: #return date
+                            size_hint_x: None
+                            width: 250
+                            size_hint_y: None
+                            height: 50
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            MDTextField:
+                                id: return_date
+                                hint_text: "Return Date"
+                                text: ""
+                                mode: "fill"
+                            MDIconButton:
+                                icon: "calendar-month"
+                                pos_hint: {"center_y": 0.4}
+                                pos: return_date.width - self.width + dp(5), 0
+                                on_release:
+                                    root.return_date_picker()
+                        MDTextField: #No of pax
+                            id: pax
+                            hint_text: "No of Pax"
+                            helper_text: "Maximum 1 pax"
+                            helper_text_mode: "on_focus"
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            size_hint_x: None
+                            width: 250
+                            mode: 'fill'
+                            input_filter: 'int'
+                        MDRectangleFlatButton: #Search/NextPage
+                            text: "Search"
+                            bold: True
+                            halign: "center"
+                            font_size: "16sp"
+                            padding: 5
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            on_release:
+                                app.pages_date()
+                                app.pages_places()
+                                root.manager.transition.direction = "left"
+                                root.manager.current = "screen_two"
+
+        MDBottomNavigationItem:
+            name: 'booking_screen'
+            text: "My Bookings"
+            icon: 'ticket-confirmation'
+            on_tab_press:
+                app.bookings()
+
+            MDCard:
+                size_hint_x: None
+                width: 350
+                size_hint_y: None
+                height: 400
+                radius: 10
+                padding: 10
+                pos_hint: {'center_x': 0.5 , 'center_y':0.5}
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDLabel:
+                        text: 'HOGWART EXPRESS'
+                        size_hint_y: None
+                        height: 50
+                    MDGridLayout:
+                        cols: 2
+                        size_hint_x: None
+                        width: 300
+                        MDLabel:
+                            text: 'Date : '
+                            size_hint_x: None
+                            width: 60
+                        MDLabel:
+                            id: book_date
+                            text:''
+                        MDLabel:
+                            text: 'Time : '
+                            size_hint_x: None
+                            width: 60
+                        MDLabel:
+                            id: book_dtime
+                        MDLabel:
+                            text: 'Name : '
+                            size_hint_x: None
+                            width: 60
+                        MDLabel:
+                            id: book_username
+                        MDLabel:
+                            text: 'Coach : '
+                            size_hint_x: None
+                            width: 60
+                        MDLabel:
+                            id: book_coach
+                        MDLabel:
+                            text: 'Seat : '
+                            size_hint_x: None
+                            width: 60
+                        MDLabel:
+                            id: book_seat
+                        MDLabel:
+                            text: 'Price : '
+                            size_hint_x: None
+                            width: 60
+                        MDLabel:
+                            id: book_price
+                        MDLabel:
+                            text: 'Status : '
+                            size_hint_x: None
+                            width: 60
+                        MDLabel:
+                            id: status
+                            text: 'upcoming'
+                    MDGridLayout:
+                        cols: 3
+                        size_hint_y: None
+                        height: 50
+                        MDLabel:
+                            id:book_origin
+                            halign: 'right'
+                        MDLabel:
+                            text: " to "
+                            halign: 'center'
+                        MDLabel:
+                            id: book_destination
+                            halign: 'left'
+                    MDRectangleFlatButton:
+                        text: 'Cancel This Booking'
+                        pos_hint: {'center_x':0.7,'center_y':0.5}
+                        on_release:
+                            app.refund()
+                            root.manager.current = "cancelling_ticket"
+
+
+
+#MDBoxLayout:
+#        orientation: 'vertical'
+#        #adaptive_height: True
+#        spacing: 15
+#        padding: 20
+        #pos_hint: {'center_x':0.5, 'center_y': 1.0}

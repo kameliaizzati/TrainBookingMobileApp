@@ -1,0 +1,93 @@
+<Screen4>: #BOOKING CONFIRMATION
+    name: "screen_four"
+
+    MDBoxLayout:
+		orientation: "vertical"
+		spacing: 5
+		padding: 25
+		MDCard: #layout A
+		    size_hint_y: None
+            height: 50
+		    MDIconButton:
+                icon: "chevron-left"
+                pos_hint: {'center_x': 0.2, 'center_y': 0.5}
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "screen_three"
+            MDLabel:
+                text: "Booking Confirmation"
+                halign: "center"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                padding: 0,5,0,0
+                font_style: "Subtitle1"
+        MDCard: #Layout B
+            size_hint_y: None
+            height: 200
+            MDBoxLayout:
+                orientation: "vertical"
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: 100
+                    MDLabel:
+                        id: origin_4
+                        text: "From" #text input using id
+                        halign: "center"
+                        font_style: "Subtitle2"
+                    MDIcon:
+                        icon: "chevron-right"
+                        halign: "center"
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    MDLabel:
+                        id: destination_4
+                        text: "To" #text input using id
+                        halign: "center"
+                        font_style: "Subtitle2"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDLabel:
+                        id: time_4
+                        text: "time" #text input using id
+                        halign: "center"
+                        font_style: "Subtitle2"
+                    MDLabel:
+                        id: depart_date_4
+                        text: "Departure Date" #text input using id
+                        halign: "center"
+                        font_style: "Subtitle2"
+        MDCard: #Layout C
+            size_hint_y: None
+            height: 100
+            MDGridLayout:
+                cols: 2
+                row_default_height: 40
+                MDLabel:
+                    text: "Coach No"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    id: coach_no_4
+                    text: ""
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    text: "Seat No"
+                    halign: "center"
+                    font_style: "Subtitle2"
+                MDLabel:
+                    id: seat_no_4
+                    text: "selected seat"
+                    halign: "center"
+                    font_style: "Subtitle2"
+        MDBoxLayout: #Layout D
+            orientation: "vertical"
+        MDRectangleFlatButton: #Layout E
+            text: "Sign Up/Sign In to Confirm Booking"
+            bold: True
+            halign: "center"
+            font_size: "14sp"
+            padding: 5
+            pos_hint: {'center_x': 0.65, 'center_y': 0.4}
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "screen_eight"
